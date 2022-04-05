@@ -5,31 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
   <title>Let's GO to do app</title>
 </head>
 <body>
 
-  <div id="Card">
-    <header>
-      <h1>TODO
-        <img id ="Moon" src="images/icon-moon.svg" alt="icon-moon">
-      </h1>
-    </header>
-      <div id="NewToDo">
-        <div id="Positionning">
-          <div id="Circle"></div>
-          <input type="text" id="CreateSentence" placeholder="Create a new todo...">
-        </div>    
-      </div>
-    <section>
-      <div id="BodyToDo">
-        <div id="FootBodyToDo"></div>
-      </div>
-    </section>
-    <footer>
-      <div id="DragAndDrop"> Drag and drop to reorder list</div>
-    </footer>
+  
+
+  <header>
+    <h1>TODO</h1>
+  </header>
+
+  <form>
+    <button class="todo-button" type="submit"></button>
+    <input type="text" class="todo-input" placeholder="Create a new todo...">
+  </form>
+
+  <div class="todo-container">
+    <ul class="todo-list"></ul>
   </div>
+
+  <footer><p>Drag and drop to reorder list</p></footer>
+
+  
 
 <script src="script.js"></script>
 </body>

@@ -91,7 +91,73 @@ form {
     background: white;
     box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
     border-radius: 5px;
-    border: 1px solid #E3E4F1;
+    overflow : auto;
+    overflow-x: hidden;
+    /* border: 1px solid #E3E4F1; */
+}
+
+.todo-footer {
+    height: 50px;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.items-left {
+    /* border: 1px solid black; */
+    width: 84px;
+    height: 14px;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+    color: #9495A5;
+    display: flex;
+    cursor: default;
+}
+
+.filter-todo {
+    /* border: 1px solid black; */
+    width: 166px;
+    height: 18px;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+    color: #9495A5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filter-todo p {
+    cursor: pointer;
+}
+
+.all {  
+    color: #3A7CFD
+}
+
+.items-clear {
+    /* border: 1px solid black; */
+    width: 109px;
+    height: 14px;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: right;
+    letter-spacing: -0.194444px;
+    cursor: pointer;
 }
 
 footer p {
@@ -113,3 +179,86 @@ footer p {
     letter-spacing: -0.194444px;
     color: #9495A5;
 }    
+
+/* JAVASCRIPT CSS */
+ul {
+    list-style-type: none;
+}
+  
+.todo {
+    width: 541px;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #E3E4F1;
+    position: relative;
+}
+
+.todo-item {
+    position: absolute;
+    right: 312px;
+    left: 72px;
+    top: 23px;
+    bottom: 23px;
+    border: none;
+    outline: none;
+    color: #494C6B;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: -0.25px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.todo-check {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    bottom: 20px;
+    right: 492px;
+    border: none;
+    border: 1px solid #E3E4F1;
+    background : white;
+    cursor: pointer;
+}
+
+/* .todo-check:hover {
+    background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    background: url(images/circle-white.svg), linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    background-size: 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: visible;
+} */
+
+.todo-check-on {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    bottom: 20px;
+    right: 492px;
+    border: none;
+    cursor: pointer;
+    /* Solution for use gradient with background-image see on https://stackoverflow.com/questions/2504071/how-do-i-combine-a-background-image-and-css3-gradient-on-the-same-element*/
+    background : #55DDFF;
+    background-image : url(images/icon-check.svg);
+    background: url(images/icon-check.svg), linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    background-size: 10px, auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.todo-item-completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}

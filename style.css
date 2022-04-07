@@ -143,7 +143,8 @@ form {
 }
 
 .all {  
-    color: #3A7CFD
+    color: #3A7CFD;
+    transition: all 0.8s ease;
 }
 
 .items-clear {
@@ -157,7 +158,12 @@ form {
     line-height: 14px;
     text-align: right;
     letter-spacing: -0.194444px;
+    color: #9495A5;
     cursor: pointer;
+}
+
+.items-clear:hover {
+    color: #494C6B;
 }
 
 footer p {
@@ -178,7 +184,22 @@ footer p {
     text-align: center;
     letter-spacing: -0.194444px;
     color: #9495A5;
-}    
+}
+
+.select:hover {
+    color:black;
+    transition: all 0.2s ease;
+}
+
+.active:hover {
+    color: black;
+    transition: all 0.2s ease;
+}
+
+.collection:hover {
+    color: black;
+    transition: all 0.2s ease;
+}
 
 /* JAVASCRIPT CSS */
 ul {
@@ -229,15 +250,6 @@ ul {
     cursor: pointer;
 }
 
-/* .todo-check:hover {
-    background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
-    background: url(images/circle-white.svg), linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
-    background-size: 40px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    overflow: visible;
-} */
-
 .todo-check-on {
     height: 24px;
     width: 24px;
@@ -262,3 +274,29 @@ ul {
     text-decoration: line-through;
     opacity: 0.5;
 }
+
+.cross {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 492px;
+    right: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    background-image: url(images/icon-cross.svg);
+}
+
+button {
+    background-color: white;
+    border-color: white;
+    border: none;
+}
+
+.blue {  
+    color: #3A7CFD;
+    transition: all 0.8s ease;
+}
+

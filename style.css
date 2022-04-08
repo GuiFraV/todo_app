@@ -201,7 +201,7 @@ footer p {
     transition: all 0.2s ease;
 }
 
-/* JAVASCRIPT CSS */
+/* JAVASCRIPT CSS CLASS */
 ul {
     list-style-type: none;
 }
@@ -300,3 +300,26 @@ button {
     transition: all 0.8s ease;
 }
 
+/* Test D&D */
+/* (A) LIST STYLES */
+.slist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .slist li {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #dfdfdf;
+    background: #f5f5f5;
+  }
+  
+  /* (B) DRAG-AND-DROP HINT */
+  .slist li.hint {
+    border: 1px solid #ffc49a;
+    background: #feffb4;
+  }
+  .slist li.active {
+    border: 1px solid #ffa5a5;
+    background: #ffe7e7;
+  }

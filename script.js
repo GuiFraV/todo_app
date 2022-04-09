@@ -47,7 +47,7 @@ function addTodo(event){
     // Add new Todo in todolist
     todoList.appendChild(todoDiv);
 
-    // Call Drag and Drop Function
+    // Call Drag and Drop Function with a todoDiv
     addEventsDragAndDrop(todoDiv);
 
     // Reset todo input
@@ -65,7 +65,7 @@ function checkButton(e) {
     const todoDiv = item.parentNode;
 
     // uncomment if you want to understand the target event =>
-    // console.log(item)
+    console.log(todoDiv)
     
     if(item.classList[0] === "todo-check"){
         item.classList.toggle("todo-check-on");
@@ -92,6 +92,8 @@ function filterTodo(e){
     const completedFilter = document.querySelector(".collection");
 
     todo.forEach(function(todo){
+        // console.log(todo);
+        // console.log(target);
         switch(target){
             case "all":
                 todo.style.display = "flex";

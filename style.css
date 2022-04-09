@@ -260,6 +260,17 @@ ul {
     cursor: pointer;
 }
 
+.todo-check:hover {
+    border: 1.5px solid transparent;
+    border-radius: 20px;
+    background: 
+      linear-gradient(to right, white, white), 
+      linear-gradient(to right, #55DDFF , #C058F3); 
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    transition: all .3s ease;
+}
+
 .todo-check-on {
     height: 24px;
     width: 24px;

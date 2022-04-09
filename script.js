@@ -65,7 +65,7 @@ function checkButton(e) {
     const todoDiv = item.parentNode;
 
     // uncomment if you want to understand the target event =>
-    console.log(todoDiv)
+    // console.log(todoDiv)
     
     if(item.classList[0] === "todo-check"){
         item.classList.toggle("todo-check-on");
@@ -166,7 +166,7 @@ function dragDrop(e) {
     return false;
 }
 
-function dragEnd(e) {
+function dragEnd() {
     var listItens = document.querySelectorAll('.draggable');
     [].forEach.call(listItens, function(item) {
         item.classList.remove('over');

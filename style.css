@@ -61,6 +61,8 @@ form {
     font-weight: 400;
     font-size: 18px;
     line-height: 18px;
+    /* border: 1px solid violet; */
+    width: 80%;
 }
 
 .todo-button {
@@ -287,6 +289,7 @@ ul {
     background-size: 10px, auto;
     background-position: center;
     background-repeat: no-repeat;
+    transition: all .3s ease;
 }
 
 .todo-item-completed {

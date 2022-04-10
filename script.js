@@ -12,6 +12,32 @@ todoList.addEventListener("click", checkButton);
 filterOption.addEventListener("click", filterTodo);
 clearButton.addEventListener("click", clearCompleted);
 
+// DOM EVENTS LISTENERS and FUNCTIONS
+document.addEventListener('DOMContentLoaded', () => {
+    // Counter
+    numberTodoDiv = document.querySelectorAll(".todo").length
+    counterDisplay.innerHTML = numberTodoDiv;
+});
+
+// Add cross on todo DIV
+var todoDivLoaded = document.querySelectorAll('.todo');
+
+[...todoDivLoaded].forEach(function(e){
+
+    e.addEventListener("mouseenter", function(){
+        const crossTodo = document.createElement("button");
+        crossTodo.classList.add("cross");
+        e.appendChild(crossTodo);
+    });
+    
+    e.addEventListener("mouseleave", function(){
+        const crossTodoNone = document.querySelector(".cross");
+        crossTodoNone.classList.remove("cross");
+    });
+
+});
+
+
 // FUNCTIONS
 function addTodo(event){
     event.preventDefault();
@@ -47,7 +73,7 @@ function addTodo(event){
     // Add new Todo in todolist
     todoList.appendChild(todoDiv);
 
-    // Call Drag and Drop Function with a todoDiv
+    // Call Drag and Drop Function with a todoDiv parameter
     addEventsDragAndDrop(todoDiv);
 
     // Reset todo input
@@ -61,17 +87,25 @@ function addTodo(event){
 
 function checkButton(e) {
     const item = e.target;
-    const todo = item.previousSibling;
+    const todo = item.previousElementSibling;
     const todoDiv = item.parentNode;
 
     // uncomment if you want to understand the target event =>
-    // console.log(todoDiv)
+    // console.log(todo);
     
     if(item.classList[0] === "todo-check"){
-        item.classList.toggle("todo-check-on");
-        todo.classList.toggle("todo-item-completed");
-        todoDiv.classList.toggle("completed");
-        todoDiv.classList.toggle("check");
+        item.classList.add("todo-check-on");
+        item.classList.remove("todo-check");
+        todo.classList.add("todo-item-completed");
+        todoDiv.classList.add("completed");
+        todoDiv.classList.add("check");
+    }else{
+        item.classList.add("todo-check");
+        item.classList.remove("todo-check-on");
+        todo.classList.remove("todo-item-completed");
+        todoDiv.classList.remove("completed");
+        todoDiv.classList.remove("check");
+
     }
 
     // DeleteButton
@@ -84,14 +118,16 @@ function checkButton(e) {
 }
 
 function filterTodo(e){
-    const todo = todoList.childNodes;
+    const todo = todoList.children;
     const target = e.target.getAttribute('name');
+
+    // console.log(todo);
 
     const allFilter = document.querySelector(".select");
     const activeFilter = document.querySelector(".active");
     const completedFilter = document.querySelector(".collection");
 
-    todo.forEach(function(todo){
+    Array.from(todo).forEach(function(todo){
         // console.log(todo);
         // console.log(target);
         switch(target){
@@ -138,6 +174,7 @@ function clearCompleted(){
 // Drag and Drop Functions :
 function dragStart(e) {
     this.style.opacity = '0.4';
+    console.log(this);
     dragSrcEl = this;
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
@@ -175,6 +212,7 @@ function dragEnd() {
 }
 
 function addEventsDragAndDrop(el) {
+    console.log(el);
     el.addEventListener('dragstart', dragStart, false);
     el.addEventListener('dragenter', dragEnter, false);
     el.addEventListener('dragover', dragOver, false);

@@ -5,6 +5,7 @@ const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 const counterDisplay = document.querySelector(".counter");
 const clearButton = document.querySelector(".items-clear");
+const div = document.querySelectorAll(".todo");
 
 // EVENTS LISTENERS
 todoButton.addEventListener("click", addTodo);
@@ -12,7 +13,7 @@ todoList.addEventListener("click", checkButton);
 filterOption.addEventListener("click", filterTodo);
 clearButton.addEventListener("click", clearCompleted);
 
-// DOM EVENTS LISTENERS and FUNCTIONS
+// DOM EVENTS LOADED LISTENERS and FUNCTIONS
 document.addEventListener('DOMContentLoaded', () => {
     // Counter
     numberTodoDiv = document.querySelectorAll(".todo").length
@@ -44,12 +45,12 @@ function addTodo(event){
 
     // Create Todo DIV
     const todoDiv = document.createElement("div");
-    todoDiv.draggable = true;
     todoDiv.classList.add("todo");
 
     // Create li
     const newTodo = document.createElement("li");
     newTodo.innerText = todoInput.value;
+    newTodo.draggable = true;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
 
@@ -91,22 +92,21 @@ function checkButton(e) {
     const todoDiv = item.parentNode;
 
     // uncomment if you want to understand the target event =>
-    // console.log(todo);
+    // console.log(button);
     
-    if(item.classList[0] === "todo-check"){
-        item.classList.add("todo-check-on");
-        item.classList.remove("todo-check");
-        todo.classList.add("todo-item-completed");
-        todoDiv.classList.add("completed");
-        todoDiv.classList.add("check");
-    }else{
-        item.classList.add("todo-check");
-        item.classList.remove("todo-check-on");
-        todo.classList.remove("todo-item-completed");
-        todoDiv.classList.remove("completed");
-        todoDiv.classList.remove("check");
-
-    }
+        if(item.classList[0] === "todo-check"){
+            item.classList.add("todo-check-on");
+            item.classList.remove("todo-check");
+            todo.classList.add("todo-item-completed");
+            todoDiv.classList.add("completed");
+            todoDiv.classList.add("check");
+        }else{
+            item.classList.add("todo-check");
+            item.classList.remove("todo-check-on");
+            todo.classList.remove("todo-item-completed");
+            todoDiv.classList.remove("completed");
+            todoDiv.classList.remove("check");
+        }
 
     // DeleteButton
     if(item.classList[0] === "cross"){
@@ -173,20 +173,18 @@ function clearCompleted(){
 
 // Drag and Drop Functions :
 function dragStart(e) {
-    this.style.opacity = '0.4';
-    console.log(this);
-    dragSrcEl = this;
+    dragSrcEl = e.target;
     e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
+    e.dataTransfer.setData('text/html', dragSrcEl.innerHTML);
 };
 
 function dragEnter(e) {
-    this.classList.add('over');
+    e.target.classList.add('over');
 }
 
 function dragLeave(e) {
     e.stopPropagation();
-    this.classList.remove('over');
+    dragSrcEl.classList.remove('over');
 }
 
 function dragOver(e) {
@@ -196,23 +194,24 @@ function dragOver(e) {
 }
 
 function dragDrop(e) {
-    if (dragSrcEl != this) {
-        dragSrcEl.innerHTML = this.innerHTML;
-        this.innerHTML = e.dataTransfer.getData('text/html');
+   li = document.querySelector(".todo-item")
+    if (dragSrcEl != li) {
+        dragSrcEl.innerHTML = e.target.innerHTML;
+        console.log(dragSrcEl);
+        e.target.innerHTML = e.dataTransfer.getData('text/html');
 }
     return false;
 }
 
-function dragEnd() {
+function dragEnd(e) {
     var listItens = document.querySelectorAll('.draggable');
     [].forEach.call(listItens, function(item) {
         item.classList.remove('over');
     });
-    this.style.opacity = '1';
 }
 
 function addEventsDragAndDrop(el) {
-    console.log(el);
+    // console.log(el);
     el.addEventListener('dragstart', dragStart, false);
     el.addEventListener('dragenter', dragEnter, false);
     el.addEventListener('dragover', dragOver, false);

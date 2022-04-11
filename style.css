@@ -156,6 +156,7 @@ form {
     transition: all 0.8s ease;
 }
 
+
 .items-clear {
     /* border: 1px solid black; */
     width: 109px;
@@ -213,6 +214,7 @@ footer p {
 /* JAVASCRIPT CSS CLASS */
 ul {
     list-style-type: none;
+    pointer-events: none;
 }
   
 .todo {
@@ -224,6 +226,11 @@ ul {
     right: 0;
     border-bottom: 1px solid #E3E4F1;
     position: relative;
+    pointer-events: none;
+}
+
+li {
+    pointer-events: auto;
 }
 
 .todo-item {
@@ -241,7 +248,7 @@ ul {
     font-weight: 400;
     font-size: 18px;
     line-height: 18px;
-    cursor: pointer;
+    cursor: grab;
     /* border: 1px solid red; */
     max-width: 400px;
     min-width: 400px;
@@ -315,6 +322,7 @@ button {
     background-color: white;
     border-color: white;
     border: none;
+    pointer-events: auto;
 }
 
 .blue {  

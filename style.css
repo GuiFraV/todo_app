@@ -4,15 +4,26 @@
     box-sizing: border-box;
 }
 
-body {
+.change-background {
     min-height: 100vh;
     background-image: url(images/bg-desktop-light.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     font-family: 'Josefin Sans', sans-serif;
+    transition: all 0.5s ease;
 }
 
-h1 {
+.change-background-dark-mode {
+    min-height: 100vh;
+    background-image: url(images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: all 0.5s ease;
+    background-color: black;
+}
+
+.light-mode {
     color: white;
     font-weight: 700;
     font-size: 40px;
@@ -29,10 +40,44 @@ h1 {
     background-image: url(images/icon-moon.svg);
     background-repeat: no-repeat;
     background-position: right;
+    /* border: 1px solid black; */
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.dark-mode {
+    height: 40px;
+    width: 30px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 0;
+    right: 0;
     cursor: pointer;
 }
 
-form {
+.change-dark-mode {
+    color: white;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: 15px;
+    font-style: normal;
+    width: 541px;
+    position: absolute;
+    top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background-image: url(images/icon-sun.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    /* border: 1px solid black; */
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.change-form {
     width: 541px;
     height: 64px;
     position: absolute;
@@ -44,6 +89,22 @@ form {
     border: 1px solid #E3E4F1;
     background:white;
     border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.change-dark-form {
+    width: 541px;
+    height: 64px;
+    position: absolute;
+    top: 158px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border: 1px solid #25273D;
+    background: #25273D;
+    border-radius: 5px;
+    transition: all 0.5s ease;
 }
 
 .todo-input {
@@ -63,6 +124,12 @@ form {
     line-height: 18px;
     /* border: 1px solid violet; */
     width: 80%;
+    transition: all 0.5s ease;
+}
+
+.todo-dark-input {
+    background: #25273D;
+    transition: all 0.5s ease;
 }
 
 .todo-button {
@@ -78,6 +145,23 @@ form {
     border: 1px solid #E3E4F1;
     background : white;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.todo-dark-button {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    bottom: 20px;
+    right: 492px;
+    border: none;
+    border: 1px solid #767992;
+    background : #25273D;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .todo-container {
@@ -95,7 +179,13 @@ form {
     box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    transition: all 0.5s ease;
     /* border: 3px solid #E3E4F1; */
+}
+
+.todo-dark-container {
+    background:  #25273D;
+    transition: all 0.5s ease;
 }
 
 .todo-footer {
@@ -114,6 +204,12 @@ form {
     align-items: center;
     position: absolute;
     bottom : -50px;
+    transition: all 0.5s ease;
+}
+
+.todo-dark-footer {
+    background:  #25273D;
+    transition: all 0.5s ease;
 }
 
 .items-left {
@@ -174,6 +270,12 @@ form {
 
 .items-clear:hover {
     color: #494C6B;
+    transition: all 0.2s ease;
+}
+
+.items-dark-clear:hover {
+    color: white;
+    transition: all 0.2s ease;
 }
 
 footer p {
@@ -201,13 +303,29 @@ footer p {
     transition: all 0.2s ease;
 }
 
+.select-dark:hover {
+    color:white;
+    transition: all 0.2s ease;
+}
+
 .active:hover {
     color: black;
     transition: all 0.2s ease;
 }
 
+.active-dark:hover {
+    color: white;
+    transition: all 0.2s ease;
+}
+
 .collection:hover {
     color: black;
+    transition: all 0.2s ease;
+}
+
+
+.collection-dark:hover {
+    color: white;
     transition: all 0.2s ease;
 }
 
@@ -227,6 +345,12 @@ ul {
     border-bottom: 1px solid #E3E4F1;
     position: relative;
     pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.todo-dark {
+    border-bottom: 1px solid #767992;
+    transition: all 0.5s ease;
 }
 
 li {
@@ -250,8 +374,9 @@ li {
     line-height: 18px;
     cursor: grab;
     /* border: 1px solid red; */
-    max-width: 400px;
-    min-width: 400px;
+    max-width: 450px;
+    min-width: 450px;
+    height: 40px;
 }
 
 .todo-check {
@@ -267,6 +392,13 @@ li {
     border: 1px solid #E3E4F1;
     background : white;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.todo-dark-check {
+    background: #25273D;
+    transition: all 0.5s ease;
+    border: 1px solid #767992;
 }
 
 .todo-check:hover {
@@ -275,6 +407,17 @@ li {
     background: 
       linear-gradient(to right, white, white), 
       linear-gradient(to right, #55DDFF , #C058F3); 
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    transition: all .3s ease;
+}
+
+.todo-dark-check:hover {
+    border: 1.5px solid transparent;
+    border-radius: 20px;
+    background: 
+        linear-gradient(to right, #25273D, #25273D), 
+        linear-gradient(to right, #55DDFF , #C058F3); 
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
     transition: all .3s ease;
@@ -316,6 +459,20 @@ li {
     border: none;
     background-color: white;
     background-image: url(images/icon-cross.svg);
+}
+
+.cross-dark {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 492px;
+    right: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: #25273D;
+    background-image: url(images/icon-cross.svg); 
 }
 
 button {

@@ -6,12 +6,17 @@ const filterOption = document.querySelector(".filter-todo");
 const counterDisplay = document.querySelector(".counter");
 const clearButton = document.querySelector(".items-clear");
 const div = document.querySelectorAll(".todo");
+// Dark Mode selector
+const darkMode = document.querySelector(".light-mode");
+
 
 // EVENTS LISTENERS
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", checkButton);
 filterOption.addEventListener("click", filterTodo);
 clearButton.addEventListener("click", clearCompleted);
+// Dark Mode EL
+darkMode.addEventListener("click", darkModeButton);
 
 // DOM EVENTS LOADED LISTENERS and FUNCTIONS
 document.addEventListener('DOMContentLoaded', () => {
@@ -224,4 +229,42 @@ var listItems = document.querySelectorAll(".todo-item");
     [].forEach.call(listItems, function(item) {
         addEventsDragAndDrop(item);
 });
-   
+
+// Dark mode function
+function darkModeButton(){
+    const bodyChange = document.querySelector(".change-background"); 
+    const formChange = document.querySelector(".change-form"); 
+    const buttonChange = document.querySelector(".todo-button");
+    const inputChange = document.querySelector(".todo-input");
+    const todoContainer = document.querySelector(".todo-container");
+    const footerChange = document.querySelector(".todo-footer")
+    const selectHover = document.querySelector(".select");
+    const activeHover = document.querySelector(".active");
+    const collectionHover = document.querySelector(".collection");
+    const itemsClear = document.querySelector(".items-clear");
+    const todoChange = document.querySelectorAll('.todo');
+    const todoCheck = document.querySelectorAll(".todo-check");
+
+    darkMode.classList.toggle("change-dark-mode");
+    bodyChange.classList.toggle("change-background-dark-mode");
+    formChange.classList.toggle("change-dark-form");
+    buttonChange.classList.toggle("todo-dark-button");
+    inputChange.classList.toggle("todo-dark-input");
+    todoContainer.classList.toggle("todo-dark-container");
+    footerChange.classList.toggle("todo-dark-footer");
+    selectHover.classList.toggle("select-dark");
+    activeHover.classList.toggle("active-dark");
+    collectionHover.classList.toggle("collection-dark");
+    itemsClear.classList.toggle("items-dark-clear");
+
+    todoCheck.forEach(function(todoCheck) {
+        todoCheck.classList.toggle("todo-dark-check");
+        console.log(todoCheck);
+    });
+
+    todoChange.forEach(function(todoChange) {
+        todoChange.classList.toggle("todo-dark");
+        console.log(todoChange);
+    });
+
+}
